@@ -1,15 +1,15 @@
 {
   "name": "Zero",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "platform": "windows-x64",
-  "releaseDate": "2026-11-25",
-  "file": "Zero_App.zip",
-  "sizeBytes": 122766456,
-  "sha256": "6656762F6B22857C42C4E40455183A7D93244FAA8822C2069E0CEA06C427EE3E",
+  "releaseDate": "2026-11-26",
+  "file": "Zero.exe",
+  "sizeBytes": 119081368,
+  "sha256": "0DC3F598D79912D4FF3EC74412C49FE38D6984B2848410ED895D12B754DE17CC",
   "notes": [
-    "Korean voice commands and local AI chat",
-    "In-app update installation from a downloaded ZIP",
-    "Zero logo applied to the app and taskbar icon"
+    "Single-file Windows app: download and run Zero.exe without extracting a ZIP",
+    "In-app updates accept a downloaded Zero.exe",
+    "Korean voice commands, local AI chat, and Zero taskbar icon"
   ],
-  "downloadUrl": "https://github.com/yeoujin1365/zero-assistant/releases/latest/download/Zero_App.zip"
+  "downloadUrl": "https://github.com/yeoujin1365/zero-assistant/releases/latest/download/Zero.exe"
 }
