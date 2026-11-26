@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10152c">
+  <meta name="description" content="제로(Zero) — 음성과 텍스트로 사용하는 Windows AI 비서. 앱을 내려받고 내 컴퓨터에서 시작하세요.">
+  <title>제로 — 나의 AI 비서</title>
+  <link rel="icon" type="image/png" href="./zero_logo.png">
+  <style>
+    :root { color-scheme: dark; --bg:#0d1122; --panel:#151b32; --line:#ffffff19; --muted:#aeb8d0; --white:#f7f8ff; --cyan:#70e8ff; --violet:#9a8cff; }
+    * { box-sizing:border-box }
+    html { scroll-behavior:smooth }
+    body { margin:0; background:radial-gradient(ellipse at 75% 6%,#4032a82d,transparent 35rem),var(--bg); color:var(--white); font-family:Inter,"Segoe UI","Malgun Gothic",sans-serif; line-height:1.6 }
+    a { color:inherit }
+    .wrap { width:min(1100px,calc(100% - 40px)); margin:auto }
+    header { height:84px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line) }
+    .brand { display:flex; align-items:center; gap:12px; text-decoration:none; font-weight:750; letter-spacing:.04em }
+    .brand img { width:42px; height:42px; border-radius:12px }
+    nav { display:flex; gap:26px; color:var(--muted); font-size:14px }
+    nav a { text-decoration:none }
+    nav a:hover,.text-link:hover { color:var(--cyan) }
+    .hero { min-height:590px; padding:94px 0 80px; display:grid; grid-template-columns:1.2fr .8fr; align-items:center; gap:54px }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; color:#c9c5ff; font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase }
+    .dot { width:7px; height:7px; border-radius:50%; background:var(--cyan); box-shadow:0 0 15px var(--cyan) }
+    h1 { margin:20px 0 15px; font-size:clamp(46px,7vw,78px); line-height:1.04; letter-spacing:-.065em }
+    h1 span { background:linear-gradient(100deg,var(--cyan),#bcb4ff 75%); color:transparent; background-clip:text }
+    .intro { max-width:550px; margin:0; color:var(--muted); font-size:18px }
+    .actions { display:flex; align-items:center; flex-wrap:wrap; gap:14px; margin-top:32px }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:52px; padding:0 23px; border-radius:14px; background:linear-gradient(105deg,#6e73ff,#588dff); box-shadow:0 12px 35px #6370ff40; color:white; text-decoration:none; font-weight:750 }
+    .button:hover { filter:brightness(1.1); transform:translateY(-1px) }
+    .secondary { color:#d7dced; text-decoration:none; padding:12px }
+    .meta { margin-top:14px; color:#8792ad; font-size:12px }
+    .art { position:relative; display:grid; place-items:center; min-height:355px }
+    .orb { position:absolute; width:290px; height:290px; border-radius:50%; background:#5146d333; filter:blur(48px) }
+    .art img { position:relative; width:min(310px,75vw); border-radius:68px; filter:drop-shadow(0 20px 65px #5146d36b); animation:float 5s ease-in-out infinite }
+    @keyframes float { 50% { transform:translateY(-8px) } }
+    .features { padding:35px 0 86px }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:24px; margin-bottom:25px }
+    h2 { font-size:30px; letter-spacing:-.04em; margin:0 }
+    .section-head p { color:var(--muted); margin:0; font-size:14px }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px }
+    .card { min-height:168px; padding:23px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(145deg,#ffffff0b,#ffffff03) }
+    .card .icon { font-size:22px }
+    .card h3 { margin:14px 0 5px; font-size:16px }
+    .card p { margin:0; color:var(--muted); font-size:13px }
+    .install { padding:0 0 86px }
+    .install-panel { display:grid; grid-template-columns:.8fr 1.2fr; gap:34px; padding:32px; border:1px solid var(--line); border-radius:22px; background:linear-gradient(115deg,#171e38,#11172b) }
+    .install-panel > div:first-child p { color:var(--muted); font-size:14px }
+    ol { margin:0; padding-left:25px; color:#e6e9f7 }
+    ol li { padding:6px 0 10px 5px }
+    code { padding:3px 7px; border:1px solid var(--line); border-radius:7px; background:#080c19; color:#a9eaff; font-size:13px }
+    .note { color:var(--muted); font-size:12px; margin-top:10px }
+    footer { border-top:1px solid var(--line); padding:25px 0 35px; color:#8e99b3; font-size:12px }
+    footer .foot { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap }
+    .text-link { color:#ccd4e8; text-decoration:none }
+    @media (max-width:760px) { .wrap{width:min(100% - 32px,560px)} header{height:70px} nav{gap:14px;font-size:12px} nav a:first-child{display:none} .hero{grid-template-columns:1fr;gap:10px;padding:65px 0 50px;text-align:center} .intro{font-size:16px;margin:auto} .eyebrow,.actions{justify-content:center} .art{min-height:265px} .art img{width:220px;border-radius:50px} .orb{width:200px;height:200px} .section-head{display:block} .section-head p{margin-top:7px} .grid{grid-template-columns:1fr} .card{min-height:0} .install-panel{grid-template-columns:1fr;padding:23px;gap:12px} }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important} }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="brand" href="#top"><img src="./zero_logo.png" alt="제로 로고"><span>ZERO</span></a>
+    <nav aria-label="주 메뉴"><a href="#features">기능</a><a href="#install">설치 방법</a><a href="./사용_안내.txt">사용 안내</a></nav>
+  </header>
+  <main id="top" class="wrap">
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><i class="dot"></i> WINDOWS AI ASSISTANT</div>
+        <h1>안녕하세요,<br><span>제로예요.</span></h1>
+        <p class="intro">말하거나 입력해 보세요. 제로가 질문에 답하고, 자주 쓰는 PC 작업을 도와드려요.</p>
+        <div class="actions">
+          <a class="button" href="https://github.com/yeoujin1365/zero-assistant/releases/latest/download/Zero_App.zip" download>↓ 제로 다운로드 <span aria-hidden="true">(ZIP)</span></a>
+          <a class="secondary" href="#install">설치 방법 보기 ↓</a>
+        </div>
+        <div class="meta">Windows 10/11 · v1.1.0 · 약 117 MiB · Python 설치 불필요</div>
+      </div>
+      <div class="art" aria-hidden="true"><div class="orb"></div><img src="./zero_logo.png" alt=""></div>
+    </section>
+    <section class="features" id="features">
+      <div class="section-head"><h2>제로가 도와드려요</h2><p>필요한 일은 편한 방식으로 말해 보세요.</p></div>
+      <div class="grid">
+        <article class="card"><div class="icon">✧</div><h3>AI와 대화</h3><p>기본 설정은 Ollama를 이용해 PC에서 AI를 실행합니다. OpenAI 연결은 설정에서 선택할 수 있습니다.</p></article>
+        <article class="card"><div class="icon">🎙</div><h3>한국어 음성 명령</h3><p>말하기 버튼을 눌러 “크롬 켜줘”, “지금 몇 시야” 같은 명령을 전달하세요.</p></article>
+        <article class="card"><div class="icon">↻</div><h3>앱 안에서 업데이트</h3><p>새 Zero_App.zip을 받은 다음 앱의 업데이트 버튼에서 선택하면 설치 후 다시 시작합니다.</p></article>
+      </div>
+    </section>
+    <section class="install" id="install">
+      <div class="install-panel">
+        <div><div class="eyebrow"><i class="dot"></i> QUICK START</div><h2 style="margin-top:12px">3분 안에 시작하기</h2><p>압축을 풀고 Zero.exe를 실행하세요. AI 대화에는 Ollama가 필요합니다.</p><a class="text-link" href="https://ollama.com/download" target="_blank" rel="noreferrer">Ollama 다운로드 ↗</a></div>
+        <div><ol><li><a class="text-link" href="https://github.com/yeoujin1365/zero-assistant/releases/latest/download/Zero_App.zip" download>제로 앱 ZIP을 내려받아</a> 원하는 폴더에 풉니다.</li><li><code>Zero.exe</code>를 실행합니다. 음성 입력 시 마이크 권한을 허용하세요.</li><li>Ollama 설치 후 명령 프롬프트에서 <code>ollama pull qwen3.5:2b</code>를 한 번 실행하면 AI 대화를 사용할 수 있습니다.</li></ol><p class="note">처음 모델을 받을 때 인터넷 연결과 수 GB의 여유 공간이 필요합니다. 대화 기록은 앱을 닫으면 초기화됩니다.</p></div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap foot"><span>제로 · 나의 데스크톱 AI 비서</span><span><a class="text-link" href="./사용_안내.txt">사용 안내</a> · <a class="text-link" href="./release.json">버전 정보</a></span></div></footer>
+</body>
+</html>
+
