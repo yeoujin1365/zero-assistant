@@ -1,7 +1,7 @@
 # GitHub Pages 배포 파일
 
-이 폴더를 공개 GitHub 저장소 `yeoujin1365/zero-assistant`의 `main` 브랜치 루트에 게시하고, Settings → Pages에서 `Deploy from a branch`, `main`, `/ (root)`를 선택하는 구성입니다.
+웹페이지 파일은 `yeoujin1365/zero-assistant` 저장소의 `main` 브랜치 루트에서 제공됩니다. 앱 바이너리는 저장소에 넣지 않고 GitHub Releases에 첨부합니다.
 
-`Zero_App.zip`은 저장소에 커밋하지 않습니다. 저장소의 Releases에서 태그 `v1.1.0`을 만들고 `Zero_App.zip`을 첨부해야 사이트 다운로드 버튼이 동작합니다. 다음 배포부터는 같은 릴리스 절차로 ZIP과 버전을 갱신합니다.
+최신 배포: `v1.2.0` — 단일 파일 `Zero.exe`. 페이지의 다운로드 링크는 최신 릴리스의 `Zero.exe`를 가리킵니다. `release.json`에는 버전, 파일 크기, SHA-256이 기록됩니다.
 
-배포 URL은 GitHub가 Pages 빌드를 완료한 뒤 `https://yeoujin1365.github.io/zero-assistant/`가 됩니다.
+정적 페이지 URL: `https://yeoujin1365.github.io/zero-assistant/`
